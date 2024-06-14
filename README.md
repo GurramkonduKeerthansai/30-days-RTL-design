@@ -1,2 +1,2 @@
 # 30-days-RTL-design
-This repository contains the codes and testbenches developed as a part of 50 days RTL design challenge.It is to enhance RTL design through daily practice and exploration of various digital designs.
+This repository contains verilog codes,testbenches and block diagrams and simulations created for a 30-days RTL (Register Transfer Level) design challenge. The goal of this challenge is to improve RTL design skills through daily practice and by experiencing various digital designs.
