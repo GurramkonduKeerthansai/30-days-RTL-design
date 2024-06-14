@@ -1,0 +1,78 @@
+// logic gates
+module logicgates(a,b,y1,y2,y3,y4,y5,y6);
+  input a,b;
+  output y1,y2,y3,y4,y5,y6;
+  assign y1 = a & b;
+  assign y2 = a | b;
+  assign y3 = a ^ b;
+  assign y4 = ~(a & b);
+  assign y5 = ~(a | b);
+  assign y6 = ~(a ^ b);   
+endmodule
+//test bench
+module logicgates_tb();
+    reg a, b;
+    wire y1, y2, y3, y4, y5, y6;
+    logicgates uut (
+        .a(a),
+        .b(b),
+        .y1(y1),
+        .y2(y2),
+        .y3(y3),
+        .y4(y4),
+        .y5(y5),
+        .y6(y6)
+    );
+
+    initial begin
+        a = 0; b = 1;
+        #100;
+        a = 1; b = 0;
+        #100;
+        a = 1; b = 1;
+        #100;
+        a = 0; b = 0;
+        #100;
+        $finish;
+    end
+endmodule
+
+//fulladder
+module full_adder_d (
+    input a,b,cin,
+    output sum,carry
+);
+
+assign sum = a ^ b ^ cin;
+assign carry = (a & b) | (b & cin)  | (cin & a) ;
+
+endmodule
+
+// TB
+module fulladder_tb();
+reg a,b,cin;
+wire sum,carry;
+
+fulladder uut(a,b,cin,sum,carry);
+
+initial begin
+a = 0; b = 0; cin = 0;
+#10
+a = 0; b = 0; cin = 1;
+#10
+a = 0; b = 1; cin = 0;
+#10
+a = 0; b = 1; cin = 1;
+#10
+a = 1; b = 0; cin = 0;
+#10
+a = 1; b = 0; cin = 1;
+#10
+a = 1; b = 1; cin = 0;
+#10
+a = 1; b = 1; cin = 1;
+#10
+$finish();
+end
+                
+endmodule
