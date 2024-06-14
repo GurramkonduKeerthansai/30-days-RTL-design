@@ -9,6 +9,7 @@ module logicgates(a,b,y1,y2,y3,y4,y5,y6);
   assign y5 = ~(a | b);
   assign y6 = ~(a ^ b);   
 endmodule
+
 //test bench
 module logicgates_tb();
     reg a, b;
@@ -37,7 +38,7 @@ module logicgates_tb();
     end
 endmodule
 
-//fulladder
+////////////////////////////////fulladder
 module full_adder_d (
     input a,b,cin,
     output sum,carry
